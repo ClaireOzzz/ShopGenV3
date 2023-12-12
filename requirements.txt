@@ -1,0 +1,10 @@
+torch==2.0.1
+torchvision==0.15.2
+xformers
+bitsandbytes
+transformers
+accelerate
+git+https://github.com/huggingface/diffusers.git
+scipy
+huggingface_hub
+datasets
