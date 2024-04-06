@@ -7,7 +7,7 @@ import torch
 
 is_shared_ui = False
 
-hf_token = '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'
+hf_token = ''
 login(token=hf_token)
 
 fs = HfFileSystem(token=hf_token)
