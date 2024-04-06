@@ -10,7 +10,7 @@ from huggingface_hub import login, HfFileSystem, snapshot_download, HfApi, creat
 is_gpu_associated = torch.cuda.is_available()
 
 is_shared_ui = False
-hf_token = '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'
+hf_token = ''
 
 
 fs = HfFileSystem(token=hf_token)
