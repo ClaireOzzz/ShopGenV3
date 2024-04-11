@@ -8,12 +8,12 @@ from subprocess import getoutput
 from huggingface_hub import login, HfFileSystem, snapshot_download, HfApi, create_repo
 
 is_gpu_associated = torch.cuda.is_available()
-
 is_shared_ui = False
+import os
 
-# hf_token = ''
-hf_token = os.environ.get("HF_TOKEN")
-login(token=hf_token)
+hf_token = os.getenv("HF_TOKEN")
+# hf_token = os.environ.get("HF_TOKEN")
+# login(token=hf_token)
 
 fs = HfFileSystem(token=hf_token)
 api = HfApi()
