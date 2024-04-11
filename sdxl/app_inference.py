@@ -6,9 +6,11 @@ import random
 import torch
 
 is_shared_ui = False
-# hf_token = ''
-hf_token = os.environ.get("HF_TOKEN")
-login(token=hf_token)
+import os
+
+hf_token = os.getenv("HF_TOKEN")
+# hf_token = os.environ.get("HF_TOKEN")
+# login(token=hf_token)
 
 fs = HfFileSystem(token=hf_token)
 api = HfApi()
