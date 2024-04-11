@@ -6,12 +6,13 @@ import random
 import torch
 
 is_shared_ui = False
-
-hf_token = ''
+# hf_token = ''
+hf_token = os.environ.get("HF_TOKEN")
 login(token=hf_token)
 
 fs = HfFileSystem(token=hf_token)
 api = HfApi()
+
 
 device="cuda" if torch.cuda.is_available() else "cpu"
 
