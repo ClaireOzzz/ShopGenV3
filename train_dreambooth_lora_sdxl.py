@@ -56,6 +56,15 @@ from diffusers.optimization import get_scheduler
 from diffusers.utils import check_min_version, is_wandb_available
 from diffusers.utils.import_utils import is_xformers_available
 
+import os
+
+# hf_token = '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'
+
+hf_token = os.getenv("HF_TOKEN")
+# login(token=hf_token)
+
+# fs = HfFileSystem(token=hf_token)
+# api = HfApi()
 
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.22.0.dev0")
@@ -793,7 +802,7 @@ def main(args):
 
         if args.push_to_hub:
             repo_id = create_repo(
-                repo_id=args.hub_model_id or Path(args.output_dir).name, exist_ok=True, token=args.hub_token
+                repo_id=args.hub_model_id or Path(args.output_dir).name, exist_ok=True, token=hf_token
             ).repo_id
 
     # Load the tokenizers
@@ -1328,7 +1337,7 @@ def main(args):
                             folder_path=args.output_dir,
                             commit_message=f"saving checkpoint-{global_step}",
                             ignore_patterns=["step_*", "epoch_*"],
-                            token=args.hub_token
+                            token=hf_token
                         )
 
             logs = {"loss": loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
@@ -1498,7 +1507,7 @@ def main(args):
                 folder_path=args.output_dir,
                 commit_message="End of training",
                 ignore_patterns=["step_*", "epoch_*"],
-                token=args.hub_token
+                token=hf_token
             )
 
     accelerator.end_training()
