@@ -10,11 +10,14 @@ from huggingface_hub import login, HfFileSystem, snapshot_download, HfApi, creat
 is_gpu_associated = torch.cuda.is_available()
 
 is_shared_ui = False
-hf_token = ''
 
+# hf_token = ''
+hf_token = os.environ.get("HF_TOKEN")
+login(token=hf_token)
 
 fs = HfFileSystem(token=hf_token)
 api = HfApi()
+
 
 if is_gpu_associated:
     gpu_info = getoutput('nvidia-smi')
