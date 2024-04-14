@@ -63,8 +63,8 @@ import os
 hf_token = os.getenv("HF_TOKEN")
 # login(token=hf_token)
 
-# fs = HfFileSystem(token=hf_token)
-# api = HfApi()
+fs = HfFileSystem(token=hf_token)
+api = HfApi()
 
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.22.0.dev0")
