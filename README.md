@@ -4,7 +4,7 @@
 
 ## Status
 
-Completed.
+Completed --> As of 2025: deprecated
 
 ## Demo
 
